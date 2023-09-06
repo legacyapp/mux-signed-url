@@ -9,7 +9,7 @@
  */
 
 const functions = require("firebase-functions");
-import Mux from '@mux/mux-node';
+const Mux = require('@mux/mux-node');
 const { Video } = new Mux(process.env.MUX_TOKEN_ID, process.env.MUX_TOKEN_SECRET);
 
 exports.greetTheWorld = functions.https.onRequest((req, res) => {
