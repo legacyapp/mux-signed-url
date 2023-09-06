@@ -15,13 +15,15 @@ https://firebase.google.com/docs/extensions/publishers/user-documentation#writin
 You can test out this extension right away!
 
 Visit the following URL:
-${function:greetTheWorld.url}
+${function:muxSignedUrl.url}
 
 # Using the extension
 
-When triggered by an HTTP request, this extension responds with the following specified greeting: "${param:GREETING} World from ${param:EXT_INSTANCE_ID}".
+When triggered by an HTTP request, this extension responds with the signed URL needed for use with Mux uploads.
 
-To learn more about HTTP functions, visit the [functions documentation](https://firebase.google.com/docs/functions/http-events).
+To learn more about Mux Upload SDK for iOS, visit the [iOS documentation](https://docs.mux.com/guides/video/upload-video-directly-from-ios-or-ipados).
+To learn more about Mux Upload SDK for Android, visit the [Android documentation](https://docs.mux.com/guides/video/upload-video-directly-from-android).
+To learn more about Mux Upload SDK for Web, visit the [Web documentation](https://docs.mux.com/guides/video/mux-uploader).
 
 <!-- We recommend keeping the following section to explain how to monitor extensions with Firebase -->
 # Monitoring
