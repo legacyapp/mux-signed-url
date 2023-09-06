@@ -18,13 +18,13 @@ exports.muxSignedUrl = onCall(
     enforceAppCheck: process.env.APPCHECK == "true" ? true : false, // Reject requests with missing or invalid App Check tokens.
   },
   (request) => {
-    Video.Uploads.create({
+    return Video.Uploads.create({
       cors_origin: process.env.MUX_CORS_URL, 
       new_asset_settings: {
         playback_policy: 'public'
       }
     }).then(upload => {
       return upload
-    });
+    })
   }
 );
