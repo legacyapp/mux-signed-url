@@ -3,6 +3,7 @@
   "description": "Mux Signed URL",
   "main": "index.js",
   "dependencies": {
+    "@mux/mux-node": "^7.3.1",
     "firebase-admin": "^11.5.0",
     "firebase-functions": "^4.2.0"
   },
