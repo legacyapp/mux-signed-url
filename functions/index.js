@@ -8,17 +8,23 @@
  * https://firebase.google.com/docs/extensions/publishers
  */
 
-const functions = require("firebase-functions");
+const { onCall } = require("firebase-functions/v2/https");
 const Mux = require('@mux/mux-node');
 const { Video } = new Mux(process.env.MUX_TOKEN_ID, process.env.MUX_TOKEN_SECRET);
 
-exports.greetTheWorld = functions.https.onRequest((req, res) => {
-  Video.Uploads.create({
-    cors_origin: process.env.MUX_CORS_URL, 
-    new_asset_settings: {
-      playback_policy: 'public'
-    }
-  }).then(upload => {
-    res.send(upload.url)
-  });
-});
+
+exports.muxSignedUrl = onCall(
+  {
+    enforceAppCheck: process.env.APPCHECK == "true" ? true : false, // Reject requests with missing or invalid App Check tokens.
+  },
+  (request) => {
+    Video.Uploads.create({
+      cors_origin: process.env.MUX_CORS_URL, 
+      new_asset_settings: {
+        playback_policy: 'public'
+      }
+    }).then(upload => {
+      return upload
+    });
+  }
+);

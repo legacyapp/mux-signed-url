@@ -24,6 +24,10 @@ sourceUrl: https://github.com/legacyapp/mux-signed-url
 # Learn more in the docs: https://firebase.google.com/docs/extensions/reference/extension-yaml#billing-required-field
 billingRequired: true
 
+externalServices:
+  - name: Mux
+    pricingUri: https://www.mux.com/pricing/video
+
 # In an `apis` field, list any Google APIs (like Cloud Translation, BigQuery, etc.)
 # required for your extension to operate.
 # Learn more in the docs:
@@ -62,7 +66,7 @@ params:
     label: Mux Token Secret
     description: >-
       Found inside the MUX Admin
-    type: string
+    type: secret
     default: 
     required: true
     immutable: false
@@ -72,5 +76,18 @@ params:
       The CORS origin for uploads (Web apps)
     type: string
     default: https://your-browser-app.com
+    required: true
+    immutable: false
+  - param: APPCHECK
+    label: Enable App Check
+    description: >-
+      Enable App check for this function
+    type: select
+    options:
+      - label: Yes
+        value: true
+      - label: No
+        value: false
+    default: false
     required: true
     immutable: false
