@@ -3,22 +3,22 @@
 
 # Identifier for your extension
 # TODO: Replace this with an descriptive name for your extension.
-name: greet-the-world  
+name: mux-signed-url
 version: 0.0.1  # Follow semver versioning
 specVersion: v1beta  # Version of the Firebase Extensions specification
 
 # Friendly display name for your extension (~3-5 words)
-displayName: Greet the world
+displayName: Mux Signed URL
 
 # Brief description of the task your extension performs (~1 sentence)
 description: >-
-  Sends the world a greeting.
+  Creates a Muc Signed URL for use with Upload SDK
 
 license: Apache-2.0  # https://spdx.org/licenses/
 
 # Public URL for the source code of your extension.
 # TODO:  Replace this with your GitHub repo.
-sourceUrl: https://github.com/ORG_OR_USER/REPO_NAME
+sourceUrl: https://github.com/legacyapp/mux-signed-url
 
 # Specify whether a paid-tier billing plan is required to use your extension.
 # Learn more in the docs: https://firebase.google.com/docs/extensions/reference/extension-yaml#billing-required-field
@@ -64,5 +64,13 @@ params:
       Found inside the MUX Admin
     type: string
     default: 
+    required: true
+    immutable: false
+  - param: MUX_CORS_URL
+    label: Mux CORS URL
+    description: >-
+      The CORS origin for uploads (Web apps)
+    type: string
+    default: https://your-browser-app.com
     required: true
     immutable: false
